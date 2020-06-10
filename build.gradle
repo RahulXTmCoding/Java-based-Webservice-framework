@@ -1,0 +1,37 @@
+apply plugin: 'java'
+sourceSets {
+   main {
+      java {
+         srcDir 'src'
+      }
+   }
+	
+}
+repositories {
+   mavenCentral()
+}
+
+dependencies {
+    compile files(fileTree(dir: 'libs', includes: ['*.jar']))
+    runtimeOnly fileTree(dir: 'libs', includes: ['*.jar'])
+    runtime files('libs/*.jar')
+    runtime fileTree(dir: 'libs', include: ['*.jar'])
+   implementation fileTree(dir: 'libs', include: ['*.jar'])
+    sourceSets.main.resources.srcDirs = [ "src/" ] 
+    sourceSets.main.resources.includes = [ "**/*.png" ]
+} 
+task getDeps(type: Copy) {
+    from configurations.runtime
+    into 'lib/'
+}
+
+
+jar{
+   manifest {
+        attributes 'Implementation-Title': 'Frame-work Jar',
+          'Main-Class': 'DocTool'
+    }
+ 
+    dependsOn ('dependencies')
+}
+
