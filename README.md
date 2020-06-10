@@ -52,7 +52,7 @@ Annotations User can use are:
 1)@Path(value="/employee")
 Path annotation can be applied to class and method.value of path should starts with frount Slash followed by path.
 Example:-
-
+``` markdow
 import com.thinking.machines.annotations.*;
 @Path(value="/employee")
 public class Employee
@@ -67,15 +67,17 @@ pw.println("Success");
 }catch(Exception e)
 {
 	e.printStackTrace();
+	
 }
 }}
+```
 user can access this service by sending request to service/employee/view.
 
 2)@RequestData(variableName="name").
 user can use the following annotation to request data from framework which arrives as web request.
 framework finds the value of the annotation an search for data with given name in request Bag and if found provide this requestded data to user without user having to worry about conversions 
 Example:-
-
+```
 import com.thinking.machines.annotations.*;
 @Path(value="/employee")
 public class Employee
@@ -88,6 +90,7 @@ System.out.println(name+"----"+gender+"-----"+indian);
 return "Add model service Used";
 }
 }
+```
 Example url to access add service
 http://localhost:8080/assignment-a-js/service/employee/add?name=Rahul+Singh&gender=male&indian=True
 To access Boolean data client user must send data as True or TRUE ot true and same goes for it counterpart.
@@ -95,7 +98,7 @@ To access Boolean data client user must send data as True or TRUE ot true and sa
 3)@Secured(value="")
 By using this annotation user dont have to write verification code for every service that need to be secured,user can just apply this annotation to all the services that are needed to be secured from unidentified access.
 Example:-
-
+```
 import com.thinking.machines.annotations.*;
 @Path(value="/employee")
 public class Employee
@@ -110,6 +113,7 @@ public String delete()
 	return "Delete model service used";
 }
 }
+```
 value of Secured annotation should be a full name to the actual class that verify user based on the users details.
 for this your verification class have to implement SecuredInerface of the Framework Module com.thinking.machines.interfaces.SecuredInterface;
 
@@ -127,7 +131,7 @@ example is shown above.
 user can use this annotaion in case of file upload request which is multipart request.user dont have to worry about how to handle the request as frame will handle the request for you and will provide the array of Files which user can easil use to save File wherever it wants.
 In case of fileUpload annotation user have to extract extra data by using RequestData annotation or by requesting for HttpServletRequest object's address and accessing the data by using getAttribute method of httpservletRequest.
 example:
-
+```
 import com.thinking.machines.annotations.*;
 @Path(value="/employee")
 public class Employee
@@ -163,11 +167,12 @@ fos.close();
 
 return "Uploaded";
 }}
+```
 to use this service send post request to /service/employee/upload.
 First Parameter Should be of type file[ ] to safely use Fileupload service.
 
 7) If user send raw data in post Request user can just  use it simply as:-
-
+```
 @Path(value="/add")
 @ResponseType(type="json")
 public Student add(Student s)
@@ -175,7 +180,7 @@ public Student add(Student s)
 
 	return s;
 }
-
+```
 Framework will automaically find the type of patameter and parse the raw data into Studenrt object and pass it as argument when invoking this service method
 
 
