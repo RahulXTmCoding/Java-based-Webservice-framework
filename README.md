@@ -21,7 +21,7 @@ Getting Started.(steps to use the Framework)
 
 2)Extract the zip File.
 
-3)copy.cut urlPaths.path file to tomcat9/Webapps/"project name"/WEB-INF/classes.
+3)Copy.cut urlPaths.path file to tomcat9/Webapps/"project name"/WEB-INF/classes.
 urlPaths contains a json String storing list of paths to where the services which are using this Framework exists:-
 {
 	
@@ -33,13 +33,13 @@ urlPaths contains a json String storing list of paths to where the services whic
 }
 the above example show how to list paths to all the places where services classes are located (services classes are classes using the framework to create web service for requests).
 
-4)copy/cut web.xml to tomcat9/Webapps/"Project Name"/WEB-INF/.
+4)Copy/cut web.xml to tomcat9/Webapps/"Project Name"/WEB-INF/.
 Now you can forget about web.Xml as you dont have to change or configure it again.
 
-5)now copy Frame_work.jar to tomcat9/Webapps/"Project Name"/WEB-INF/lib/.
+5)Now copy Frame_work.jar to tomcat9/Webapps/"Project Name"/WEB-INF/lib/.
 Tomcat search for servlet classes in classes folder or lib folder.
 
-6)now copy all files inside Dependencies folder and paste them inside tomcat9/lib/.
+6)Now copy all files inside Dependencies folder and paste them inside tomcat9/lib/.
 these are all the files you will ever need to create a web service.Our framework is Dependent on some of the these files.some of the jar file may already be present there you can skip those files.
 
 7)You are done setting up the environment,now you can use the frameWork easily.
@@ -127,6 +127,7 @@ example is shown above.
 user can use this annotaion in case of file upload request which is multipart request.user dont have to worry about how to handle the request as frame will handle the request for you and will provide the array of Files which user can easil use to save File wherever it wants.
 In case of fileUpload annotation user have to extract extra data by using RequestData annotation or by requesting for HttpServletRequest object's address and accessing the data by using getAttribute method of httpservletRequest.
 example:
+
 import com.thinking.machines.annotations.*;
 @Path(value="/employee")
 public class Employee
