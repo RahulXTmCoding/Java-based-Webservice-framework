@@ -19,7 +19,7 @@ Benifits of using this FrameWork:-
 Getting Started.(steps to use the Framework)
 ===========================
 
-1)Download this git repositorie.
+1)Download this git repository.
 
 2)Extract the zip File.
 
